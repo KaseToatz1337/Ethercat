@@ -1,0 +1,7 @@
+﻿cmake_minimum_required(VERSION 3.12)
+set(CMAKE_TOOLCHAIN_FILE "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake")
+project("Ethercat")
+add_executable(Ethercat "src/main.cpp")
+set_property(TARGET Ethercat PROPERTY CXX_STANDARD 20)
+find_package(soem CONFIG REQUIRED)
+target_link_libraries(Ethercat PRIVATE soem)
